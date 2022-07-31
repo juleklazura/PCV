@@ -2,20 +2,22 @@ import java.util.*;
 import java.util.Random;
 
 public class RandomUG {
-  static int maxVertex = 10;
+  static int maxVertex = 15;
 
   // Function to generate random graph
-  public static void generateRandomGraphs(int e)
-  {
+  public static void generateRandomGraphs(int e) {
     int i = 0, j = 0, count = 0;
 
-    int[][] edge = new int[e][2];
+    // e, número de linhas da matriz ou número de arestas
+    // 3, número de colunas | indice: 2 - peso da aresta e
+    int[][] edge = new int[e][3];
     Random rand = new Random();
 
     // Build a connection between two random vertex
     while (i < e) {
       edge[i][0] = rand.nextInt(maxVertex) + 1;
       edge[i][1] = rand.nextInt(maxVertex) + 1;
+      edge[i][2] = rand.nextInt(1, 10); // peso da aresta
 
       // using rand to pick a random integer in range
       // of (1 - maxVertex)
@@ -23,7 +25,7 @@ public class RandomUG {
     }
 
     System.out.println(
-            "The Generated Random Graph is :");
+        "The Generated Random Graph is :");
 
     // Print the Graph
     for (i = 0; i < maxVertex; i++) {
@@ -35,13 +37,10 @@ public class RandomUG {
         if (edge[j][0] == i + 1) {
           System.out.print(edge[j][1] + " ");
           count++;
-        }
-
-        else if (edge[j][1] == i + 1) {
+        } else if (edge[j][1] == i + 1) {
           System.out.print(edge[j][0] + " ");
           count++;
         }
-
         // print “Isolated vertex” for the vertex
         // having zero degree.
         else if (j == e - 1 && count == 0)
@@ -49,12 +48,21 @@ public class RandomUG {
       }
       System.out.print(" }\n");
     }
+
+    System.out.println();
+    for (i = 0; i < maxVertex; i++) {
+      for (j = 0; j < 2; j++) {
+        System.out.print(edge[i][j] + " ");
+      }
+      System.out.println(" | Peso: "+edge[i][2]);
+    }
   }
 
-  public static void main(String args[]) throws Exception
-  {
-    int e = 6;
-    System.out.println("Enter the number of Edges : " +e);
+  public static void main(String args[]) throws Exception {
+    // Scanner leitura = new Scanner(System.in);
+    int e = 15;
+    // System.out.println("Enter the number of Edges : ");
+    // e = leitura.nextInt();
 
     // Function to generate a Random unDirected Graph
     generateRandomGraphs(e);
