@@ -1,0 +1,31 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+
+        {
+            "type": "java",
+            "name": "Launch Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Launch RandomUG",
+            "request": "launch",
+            "mainClass": "RandomUG",
+            "projectName": "pcv_3e779327"
+        },
+        {
+            "type": "java",
+            "name": "Launch TSPsolver",
+            "request": "launch",
+            "mainClass": "entry.TSPsolver",
+            "projectName": "pcv_3e779327",
+            "vmArgs": "--module-path C:/Users/chaga/Documents/Meu_JavaFX/javafx-sdk-18.0.2/lib --add-modules=javafx.controls"
+            // apenas alterar para o diretório da pasta 'lib' do teu javafx
+        }
+    ]
+}

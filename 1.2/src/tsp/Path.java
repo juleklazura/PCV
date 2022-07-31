@@ -13,7 +13,16 @@ package tsp;
  * form of a double value. The fitness is always
  * being calculated in relation to all the other
  * paths in the population.
- *  
+ * 
+ * Um Caminho é usado para armazenar uma rota de viagem específica 
+ * através de todos os vértices. Isso é feito com a ajuda de um array int 
+ * que contém os valores de índice de um VertexSet. 
+ * A ordem de como percorrer os vértices pode ser recuperada simplesmente
+ * iterando pelo array do início ao fim. Além disso, cada Caminho 
+ * é capaz de armazenar sua adequação na forma de um valor duplo. 
+ * O fitness está sempre sendo calculado em relação a todos 
+ * os outros caminhos da população.
+ * 
  * @author Roman Boegli
  *
  */
@@ -30,9 +39,9 @@ public class Path implements Cloneable{
 	/**
 	 * constructor I, used to initiate paths
 	 * @param nVertices indicates the length of 
-	 * 					  the path
+	 * 					  the path // tamanho dp path
 	 * @param lShuffle shuffles the order if set to true
-	 * 					 intensively
+	 * 					 intensively // embaralha intensivamente se true
 	 */
 	public Path(int nVertices, boolean lShuffle) {
 		
@@ -49,6 +58,7 @@ public class Path implements Cloneable{
 		
 		if(lShuffle) {
 			//shuffle the elements randomly
+			//Embaralhamento eleatório dos elementos
 			this.shuffle(nVertices);
 		}
 	}
