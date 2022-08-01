@@ -153,7 +153,7 @@ public class AppController extends Controller<AppModel, AppView>{
 						int i = Integer.parseInt(view.txt_PopEvolScope.getText());
 						while(i>0 && !lStopp) {
 
-							System.out.println("evolution: " + i);
+							//System.out.println("evolution: " + i);
 							
 							model.pop.evolve2();
 

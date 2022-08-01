@@ -1,3 +1,4 @@
+import java.io.PrintWriter;
 import java.util.*;
 import java.util.Random;
 
@@ -49,13 +50,16 @@ public class RandomUG {
       System.out.print(" }\n");
     }
 
-    System.out.println();
-    for (i = 0; i < maxVertex; i++) {
-      for (j = 0; j < 2; j++) {
-        System.out.print(edge[i][j] + " ");
+    for (i = 0; i < e; i++) {
+      for (j = 0; j < e; j++) {
+        if (edge[j][0] == i + 1) {
+          System.out.println((i+1)+","+edge[j][1]+","+edge[j][2]);
+        } else if (edge[j][1] == i + 1) {
+          System.out.println((i+1)+","+edge[j][0]+","+edge[j][2]);
+        }
       }
-      System.out.println(" | Peso: "+edge[i][2]);
     }
+
   }
 
   public static void main(String args[]) throws Exception {

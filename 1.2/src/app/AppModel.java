@@ -59,10 +59,10 @@ public class AppModel extends Model{
 		vSet = new VertexSet();
 
 		for (int i = 0 ; i < n ; i++) {
-			Vertex v = Vertex.getRandom(0, 100, 0, 100, 0, 0); 
+			Vertex v = Vertex.getRandom(i,0, 100, 0, 100, 0, 0); 
 			vSet.addVertex(v);
 		}
-		
+		System.out.println("vSet > \n"+vSet.getInfo()); 
 	}
 	
 	

@@ -76,7 +76,7 @@ public class Vertex {
 	 * @param nZmax z coordinate's upper bound
 	 * @return randomly generated Vertex
 	 */
-	public static Vertex getRandom(double nXmin, double nXmax, double nYmin, double nYmax, double nZmin, double nZmax) {
+	public static Vertex getRandom(int nome, double nXmin, double nXmax, double nYmin, double nYmax, double nZmin, double nZmax) {
 		
 		Vertex aReturn = new Vertex(); //private constructor
 		String cName;
@@ -85,7 +85,8 @@ public class Vertex {
 		double nZ;
 		
 		//get hash code as name
-		cName = String.valueOf(System.identityHashCode(aReturn));
+		//cName = String.valueOf(System.identityHashCode(aReturn));
+		cName = (nome+1)+"";
 		
 		//get random coordinates within range
 		nX = (nXmax - nXmin) * Math.random() + nXmin;

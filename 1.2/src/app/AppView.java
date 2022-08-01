@@ -103,7 +103,8 @@ public class AppView extends View<AppModel> {
 		root.setLeft(getLeft());
 		root.setCenter(getCenter());	
 
-		Scene scene = new Scene(root,1200,1050);
+		//Scene scene = new Scene(root,1200,1050);
+		Scene scene = new Scene(root,720,600);
 
 		return scene;
 		
@@ -129,7 +130,7 @@ public class AppView extends View<AppModel> {
 		//construct left side
 		Label lbl_lbl_minimalDistance = new Label("Best Distance im meters");
 		lbl_minimalDistance = new Label("9999.99");
-		lbl_minimalDistance.setFont(Font.font("Consolas", 80));
+		lbl_minimalDistance.setFont(Font.font("Consolas", 50));
 		VBox holder_01 = new VBox(lbl_lbl_minimalDistance, lbl_minimalDistance);
 		
 		
@@ -209,7 +210,7 @@ public class AppView extends View<AppModel> {
 		//main-container
 		StackPane holder = new StackPane();
 		holder.setId("holder_center");
-		holder.setAlignment(Pos.TOP_LEFT);
+		holder.setAlignment(Pos.CENTER);
 		
 		//painting
 		painting = getPainting();
@@ -248,8 +249,8 @@ public class AppView extends View<AppModel> {
 		 */
 		if (painting == null) {
 			
-			double nWidth = 800;
-			double nHeight = 800;
+			double nWidth = 400;//800;
+			double nHeight = 400;//800;
 			
 			painting = new Painting(nWidth,nHeight);
 			clear(painting);
