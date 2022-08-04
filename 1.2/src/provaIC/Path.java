@@ -1,4 +1,8 @@
-package tsp;
+
+import java.util.List;
+
+import tsp.Vertex;
+import tsp.VertexSet;
 
 /**
  * A Path is used to store a specific travel
@@ -96,25 +100,20 @@ public class Path implements Cloneable {
 
 	// --------------------------------------------------
 
-	public void custoPath(int[][] grafo) {
-		int custo = 0, i = 0, j = 0;
-		for (int x = 0; x < this.Order.length;) {
-			i = this.Order[x];
-			j = i;
-			int tam = 0, min = -1;
-			while (i == j) {
-				min = grafo[i][2];
-				if (grafo[i][2] < min) {
-					min = grafo[i][2];
+	public double custoPath(List<Vertice> grafo) {
+		int custo = 0, min = 10;
+		for (int i = 0; i < this.Order.length - 1; i++) {
+			for (int j = 0; j < grafo.size(); j++) {
+				boolean condicao1 = (grafo.get(j).origem == Order[i] && grafo.get(j).destino == Order[i + 1]);
+				if (condicao1 && grafo.get(j).peso < min) {
+					min = grafo.get(j).peso;
 				}
-				j = grafo[i+1][0];
 			}
+			custo += min;
+			min = 10;
 		}
-		custo += min; // peso da aresta na posicao do caminho ordenado
-		x += tam;
-		nFitness = custo;
-		System.out.println("Custo > " + nFitness);
-
+		this.nFitness = custo;
+		return this.nFitness;
 	}
 
 	// -----------------------------------------------

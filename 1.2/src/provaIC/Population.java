@@ -1,6 +1,10 @@
-package tsp;
+
 
 import java.util.ArrayList;
+import java.util.List;
+
+import tsp.Vertex;
+import tsp.VertexSet;
 
 /**
  * A Population is used to hold the VertexSet
@@ -19,7 +23,7 @@ public class Population {
 	private VertexSet vs;
 	private double nMutationRate;
 
-	private int[][] grafoAtual;
+	private List<Vertice> grafoAtual;
 
 	/**
 	 * constructor I, used to initiate a population
@@ -51,20 +55,12 @@ public class Population {
 
 	// --------------------------------------------------
 
-	public Population(int tamanhoPopulacao, double nMutationRate, int[][] grafo) {
+	public Population(int tamanhoPopulacao, double nMutationRate, List<Vertice> grafo) {
 
 		this.grafoAtual = grafo;
 		this.nMutationRate = nMutationRate;
 		this.nGeneration = 0;
 		this.listPaths = new ArrayList<Path>();
-		VertexSet vs = new VertexSet();
-
-		for (int i = 0; i < 15; i++) {
-			double fator = 1 / 400;
-			Vertex v = new Vertex((i + 1) + "", (fator * grafo[i][0]), (fator * grafo[i][1]));
-			vs.addVertex(v);
-		}
-		this.vs = vs;
 
 		for (int i = 0; i < tamanhoPopulacao; i++) {
 			Path path = new Path(15, true); // 15 número de nós ou vertices
@@ -109,7 +105,7 @@ public class Population {
 		// check if we find a fitter path | verifique se encontramos o melhor path
 		for (int i = 0; i < this.listPaths.size(); i++) {
 			Path p = this.listPaths.get(i);
-			if (aReturn.getFitness() < this.listPaths.get(i).getFitness()) {
+			if (aReturn.getFitness() > this.listPaths.get(i).getFitness()) {
 				aReturn = p;
 			}
 		}
@@ -237,9 +233,9 @@ public class Population {
 	 * generation further. The two fittest paths
 	 * will be the only two parent paths for all
 	 * child paths of the next generation.
+	 * @param list
 	 */
-	public void evolve2() {
-
+	public void evolve2(List<Vertice> list) {
 		ArrayList<Path> ps_new = new ArrayList<Path>();
 
 		this.assessFitness();
@@ -253,7 +249,7 @@ public class Population {
 
 			p3.mutate(this.nMutationRate);
 
-			p3.custoPath(this.grafoAtual);
+			p3.custoPath(list);
 
 			ps_new.add(p3);
 		}

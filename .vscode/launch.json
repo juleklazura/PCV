@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch Gerador",
+            "request": "launch",
+            "mainClass": "Gerador",
+            "projectName": "pcv_3e779327"
+        },
+        {
+            "type": "java",
             "name": "Launch mainPCV",
             "request": "launch",
             "mainClass": "mainPCV",
