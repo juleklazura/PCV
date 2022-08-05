@@ -3,8 +3,6 @@
 import java.util.ArrayList;
 import java.util.List;
 
-import tsp.Vertex;
-import tsp.VertexSet;
 
 /**
  * A Population is used to hold the VertexSet
@@ -20,7 +18,6 @@ public class Population {
 
 	private long nGeneration;
 	private ArrayList<Path> listPaths;
-	private VertexSet vs;
 	private double nMutationRate;
 
 	private List<Vertice> grafoAtual;
@@ -34,7 +31,7 @@ public class Population {
 	 * @param nMutationRate value between 0 and 1
 	 *                      indicating the intensity
 	 *                      of mutation being applied
-	 */
+	 *
 	public Population(VertexSet vs, int size, double nMutationRate) {
 
 		// define object attributes
@@ -51,7 +48,7 @@ public class Population {
 
 		// determine fitness of each path
 		this.assessFitness();
-	}
+	}*/
 
 	// --------------------------------------------------
 
@@ -410,7 +407,7 @@ public class Population {
 
 		for (int i = 0; i < this.listPaths.size(); i++) {
 			Path p = this.listPaths.get(i);
-			cReturn = cReturn + p.getInfo(this.vs) + "\n";
+			//cReturn = cReturn + p.getInfo(this.vs) + "\n";
 		}
 
 		return cReturn;

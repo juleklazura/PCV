@@ -1,8 +1,6 @@
 
 import java.util.List;
 
-import tsp.Vertex;
-import tsp.VertexSet;
 
 /**
  * A Path is used to store a specific travel
@@ -275,7 +273,7 @@ public class Path implements Cloneable {
 	 *         indicated by their names (name based),
 	 *         current fitness and total distance as
 	 *         a one line info string
-	 */
+	 *
 	public String getInfo(VertexSet vs) {
 
 		int nIndex;
@@ -301,7 +299,7 @@ public class Path implements Cloneable {
 		// cReturn = cReturn + " {" + System.identityHashCode(this.Order) + "}";
 
 		return cReturn;
-	}
+	}*/
 
 	/**
 	 * gets the path's fitness
